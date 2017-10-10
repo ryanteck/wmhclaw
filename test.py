@@ -14,17 +14,17 @@ leftButton = Button(3)
 #downStop = Button()
 
 print("initialization test")
-read_line()
+readline()
 
 print("Homing")
 
 leftRight.backward()
 forwardBack.forward()
-read_line()
+readline()
 leftRight.stop()
 forwardBack.stop()
 print("Homed")
-read_line()
+readline()
 print("Moving to the right")
 leftRight.forward()
 #Stop
