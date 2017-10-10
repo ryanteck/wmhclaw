@@ -3,7 +3,7 @@ from time import sleep
 
 forwardBack = Motor(17,27)
 leftRight = Motor(22,23)
-upDown = Motor(20,21)
+upDown = Motor(9,25)
 
 fowardButton = Button(2)
 leftButton = Button(3)
