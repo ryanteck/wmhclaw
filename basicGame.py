@@ -38,7 +38,7 @@ while True:
     pygame.mixer.pause()
     print("Waiting for right button")
     rightButton.wait_for_press()
-    pygame.mixer.play()
+    pygame.mixer.unpause()
     leftRight.forward()
     while(rightButton.is_pressed) and (leftRightStop.is_pressed != 1):
         pass
