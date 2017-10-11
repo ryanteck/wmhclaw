@@ -15,14 +15,14 @@ upStop = Button(2)
 downStop = Button(5)
 
 #Init Buttons
-forwardButton = Button(6)
-rightButton = Button(7)
+forwardButton = Button(7)
+rightButton = Button(6)
 
 #Init Claw Electromagnet
 #clawMagnet = LED(18)
 
 moveMusic = "musicFiles/movement.mp3"
-clawMusic = "musicFiles/movement.mp3"
+clawMusic = "musicFiles/claw.mp3"
 
 while True:
     print("Press enter to start game")
@@ -32,14 +32,16 @@ while True:
     rightButton.wait_for_press()
     pygame.mixer.music.play()
     leftRight.backward()
+    sleep(0.5)
     while(rightButton.is_pressed) and (leftRightStop.is_pressed != 1):
         pass
     leftRight.stop()
     pygame.mixer.music.pause()
-    print("Waiting for right button")
+    print("Waiting for forward button")
     forwardButton.wait_for_press()
     pygame.mixer.music.unpause()
     forwardBack.forward()
+    sleep(0.5)
     while(forwardButton.is_pressed) and (forwardBackStop.is_pressed != 1):
         pass
     forwardBack.stop()
