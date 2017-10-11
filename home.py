@@ -5,6 +5,10 @@ forwardBack = Motor(17,27)
 leftRight = Motor(22,23)
 upDown = Motor(9,25)
 
+upDown.backward()
+sleep(5)
+upDown.stop()
+
 leftRightStop = Button(4)
 forwardBackStop = Button(3)
 upStop = Button(2)
