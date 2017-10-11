@@ -2,7 +2,7 @@
 from gpiozero import Motor, Button, LED
 from time import sleep
 import pygame
-pygame.mixer.pre_init(44100, -16, 2, 2048)
+pygame.mixer.pre_init(22050, -8, 2, 512)
 pygame.mixer.init()
 #Init Motors
 forwardBack = Motor(17,27)
@@ -22,8 +22,8 @@ rightButton = Button(6)
 #Init Claw Electromagnet
 #clawMagnet = LED(18)
 
-moveMusic = "musicFiles/movement.mp3"
-clawMusic = "musicFiles/claw.mp3"
+moveMusic = "musicFiles/movement.ogg"
+clawMusic = "musicFiles/claw.ogg"
 
 while True:
     print("Press enter to start game")
