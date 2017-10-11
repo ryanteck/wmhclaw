@@ -1,7 +1,8 @@
 #Basic Claw Game
-from gpiozero import Motor, Button, LED
+from gpiozero import Motor, Button, PWMLED
 from time import sleep
 import pygame
+import random
 pygame.mixer.pre_init(22050, -8, 2, 512)
 pygame.mixer.init()
 #Init Motors
@@ -20,7 +21,7 @@ forwardButton = Button(7)
 rightButton = Button(6)
 
 #Init Claw Electromagnet
-#clawMagnet = LED(18)
+clawMagnet = PWMLED(18,frequency=100)
 
 moveMusic = "musicFiles/movement.ogg"
 clawMusic = "musicFiles/claw.ogg"
@@ -28,12 +29,12 @@ clawMusic = "musicFiles/claw.ogg"
 while True:
     print("Press enter to start game")
     pygame.mixer.music.load(moveMusic)
-    input()
+    #input()
     print("Waiting for right button")
     rightButton.wait_for_press()
     pygame.mixer.music.play()
     leftRight.backward()
-    sleep(0.5)
+    sleep(0.3)
     while(rightButton.is_pressed) and (leftRightStop.is_pressed != 1):
         pass
     leftRight.stop()
@@ -42,7 +43,7 @@ while True:
     forwardButton.wait_for_press()
     #pygame.mixer.music.unpause()
     forwardBack.forward()
-    sleep(0.5)
+    sleep(0.2)
     while(forwardButton.is_pressed) and (forwardBackStop.is_pressed != 1):
         pass
     forwardBack.stop()
@@ -53,7 +54,9 @@ while True:
     downStop.wait_for_press()
     #Grab Candy
     upDown.stop()
-    sleep(1)
+    clawPwm = random.uniform(0.3,1)
+    print(clawPwm)
+    clawMagnet.value = clawPwm
     #Candy grabbed lift
     #pygame.mixer.music.load(moveMusic)
     #pygame.mixer.music.play(-1)
@@ -66,14 +69,15 @@ while True:
     pygame.mixer.music.play()
     #Home left
     leftRight.forward()
-    sleep(0.5)
+    sleep(0.05)
     leftRightStop.wait_for_press()
     leftRight.stop()
     #Home right
     forwardBack.backward()
-    sleep(0.5)
+    sleep(0.05)
     forwardBackStop.wait_for_press()
     forwardBack.stop()
     pygame.mixer.music.stop()
+    clawMagnet.value = 0 
         
     
