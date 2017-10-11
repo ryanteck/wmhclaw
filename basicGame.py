@@ -15,8 +15,8 @@ upStop = Button(2)
 downStop = Button(5)
 
 #Init Buttons
-forwardButton = button(6)
-rightButton = button(7)
+forwardButton = Button(6)
+rightButton = Button(7)
 
 #Init Claw Electromagnet
 #clawMagnet = LED(18)
