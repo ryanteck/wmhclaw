@@ -5,6 +5,10 @@ forwardBack = Motor(17,27)
 leftRight = Motor(22,23)
 upDown = Motor(9,25)
 
+upDown.backward()
+sleep(5)
+upDown.stop()
+
 leftRightStop = Button(4)
 forwardBackStop = Button(3)
 upStop = Button(2)
@@ -15,16 +19,17 @@ input()
 
 print("Homing")
 
-leftRight.backward()
+leftRight.forward()
 leftRightStop.wait_for_press()
 leftRight.stop()
 
-forwardBack.forward()
+forwardBack.backward()
 forwardBackStop.wait_for_press()
 forwardBack.stop()
 
 upDown.forward()
 upStop.wait_for_press()
+upDown.stop()
 
 print("Homed")
 
