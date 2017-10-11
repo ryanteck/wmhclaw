@@ -15,11 +15,11 @@ input()
 
 print("Homing")
 
-leftRight.backward()
+leftRight.forward()
 leftRightStop.wait_for_press()
 leftRight.stop()
 
-forwardBack.forward()
+forwardBack.backward()
 forwardBackStop.wait_for_press()
 forwardBack.stop()
 
