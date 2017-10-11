@@ -2,6 +2,7 @@
 from gpiozero import Motor, Button, LED
 from time import sleep
 import pygame
+pygame.mixer.pre_init(44100, -16, 2, 2048)
 pygame.mixer.init()
 #Init Motors
 forwardBack = Motor(17,27)
@@ -36,17 +37,17 @@ while True:
     while(rightButton.is_pressed) and (leftRightStop.is_pressed != 1):
         pass
     leftRight.stop()
-    pygame.mixer.music.pause()
+    #pygame.mixer.music.pause()
     print("Waiting for forward button")
     forwardButton.wait_for_press()
-    pygame.mixer.music.unpause()
+    #pygame.mixer.music.unpause()
     forwardBack.forward()
     sleep(0.5)
     while(forwardButton.is_pressed) and (forwardBackStop.is_pressed != 1):
         pass
     forwardBack.stop()
     pygame.mixer.music.load(clawMusic)
-    pygame.mixer.music.play()
+    pygame.mixer.music.play(-1)
     #Claw Drop
     upDown.backward()
     downStop.wait_for_press()
@@ -54,6 +55,9 @@ while True:
     upDown.stop()
     sleep(1)
     #Candy grabbed lift
+    #pygame.mixer.music.load(moveMusic)
+    #pygame.mixer.music.play(-1)
+    pygame.mixer.music.rewind()
     upDown.forward()
     upStop.wait_for_press()
     upDown.stop()
