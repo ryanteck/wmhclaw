@@ -48,7 +48,15 @@ while True:
     pygame.mixer.music.load(clawMusic)
     pygame.mixer.music.play()
     #Claw Drop
-    sleep(5) #Simulate claw drop
+    upDown.backward()
+    downStop.wait_for_press()
+    #Grab Candy
+    upDown.stop()
+    sleep(1)
+    #Candy grabbed lift
+    upDown.forward()
+    upStop.wait_for_press()
+    upDown.stop()
     #Claw Up
     pygame.mixer.music.load(moveMusic)
     pygame.mixer.music.play()
