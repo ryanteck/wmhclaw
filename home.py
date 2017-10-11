@@ -29,6 +29,7 @@ forwardBack.stop()
 
 upDown.forward()
 upStop.wait_for_press()
+upDown.stop()
 
 print("Homed")
 
