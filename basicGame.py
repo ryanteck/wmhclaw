@@ -69,12 +69,12 @@ while True:
     pygame.mixer.music.play()
     #Home left
     leftRight.forward()
-    sleep(0.05)
+    sleep(0.3)
     leftRightStop.wait_for_press()
     leftRight.stop()
     #Home right
     forwardBack.backward()
-    sleep(0.05)
+    sleep(0.3)
     forwardBackStop.wait_for_press()
     forwardBack.stop()
     pygame.mixer.music.stop()
