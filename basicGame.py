@@ -24,14 +24,14 @@ rightButton = Button(6)
 clawMagnet = PWMLED(18,frequency=100)
 
 moveMusic = "musicFiles/movement.ogg"
-clawMusic = "musicFiles/claw.ogg"
+clawMusic = "musicFiles/clawLonger.ogg"
 
 while True:
     print("Press enter to start game")
-    pygame.mixer.music.load(moveMusic)
-    #input()
+    
     print("Waiting for right button")
     rightButton.wait_for_press()
+    pygame.mixer.music.load(moveMusic)
     pygame.mixer.music.play()
     leftRight.backward()
     sleep(0.3)
