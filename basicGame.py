@@ -54,7 +54,7 @@ while True:
     downStop.wait_for_press()
     #Grab Candy
     upDown.stop()
-    clawPwm = random.uniform(0.3,1)
+    clawPwm = random.uniform(0.4,1)
     print(clawPwm)
     clawMagnet.value = clawPwm
     #Candy grabbed lift
