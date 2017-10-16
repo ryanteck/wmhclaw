@@ -8,7 +8,7 @@ pygame.mixer.init()
 #Init Motors
 forwardBack = Motor(17,27)
 leftRight = Motor(22,23)
-upDown = Motor(9,25)
+upDown = Motor(24,25)
 
 #Init Stop Switches
 leftRightStop = Button(4)
